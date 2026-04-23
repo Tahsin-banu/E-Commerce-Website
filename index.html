@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════╗
+║         LUXURY VOGUE — index.html  (DEBUGGED ✅)            ║
+║         Save this as: index.html                            ║
+║         Keep style.css and script.js in the SAME folder     ║
+╚══════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxury Vogue | Premium Lifestyle Store</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- OUR CSS FILE — must be in same folder -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── ANNOUNCEMENT BAR ── -->
+  <div class="announce">
+    ✦ Use code <strong>VOGUE20</strong> for 20% off your first order
+    &nbsp;·&nbsp; Free shipping above ₹999 ✦
+  </div>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="hdr">
+
+      <div class="logo">
+        <div class="logo-main">Luxury <em>Vogue</em></div>
+        <div class="logo-sub">Premium Lifestyle Store</div>
+      </div>
+
+      <div class="search-wrap">
+        <div class="sbox">
+          <input id="searchInput" type="text" placeholder="Search products, brands…" oninput="applyFilters()"/>
+          <button type="button"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+      <div class="hdr-actions">
+        <button class="hbtn" type="button">
+          <i class="fas fa-user"></i><span>Account</span>
+        </button>
+        <button class="hbtn" type="button">
+          <i class="fas fa-heart"></i><span>Wishlist</span>
+        </button>
+        <div class="cart-wrap">
+          <button class="hbtn" type="button" onclick="toggleCart()">
+            <i class="fas fa-shopping-bag"></i><span>Bag</span>
+          </button>
+          <span class="cbadge" id="cartBadge"></span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── NAVIGATION ── -->
+  <div class="nav-bar">
+    <div class="nav-inner">
+      <a href="#" class="active">Home</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Electronics</a>
+      <a href="#">Fashion</a>
+      <a href="#">Home & Living</a>
+      <a href="#">Wellness</a>
+      <a href="#">Gifting</a>
+      <a href="#" class="nav-sale">Sale 🔥</a>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <i class="fas fa-star"></i> New Season · Curated Luxury
+      </div>
+      <h1>Crafted for the<br/><em>Discerning</em> Few</h1>
+      <p>Discover an exclusive selection of premium electronics, fashion,
+        beauty and lifestyle products — curated for those who appreciate
+        the finest things.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" type="button"
+          onclick="document.querySelector('.main').scrollIntoView({behavior:'smooth'})">
+          <i class="fas fa-shopping-bag"></i> Explore Collection
+        </button>
+        <button class="btn-ghost" type="button">View Lookbook</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-icon">🏆</div>
+        <div class="hstat-info"><h4>Top Brands</h4><p>Only the finest</p></div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-icon">⭐</div>
+        <div class="hstat-info"><h4>4.9 / 5</h4><p>Avg Rating</p></div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-icon">🚚</div>
+        <div class="hstat-info"><h4>Free Shipping</h4><p>Above ₹999</p></div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-icon">🔒</div>
+        <div class="hstat-info"><h4>100% Safe</h4><p>Secure Checkout</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST STRIP ── -->
+  <div class="trust">
+    <div class="titem"><i class="fas fa-truck"></i> Free Delivery ₹999+</div>
+    <div class="titem"><i class="fas fa-undo-alt"></i> 15-Day Returns</div>
+    <div class="titem"><i class="fas fa-shield-alt"></i> 100% Authentic</div>
+    <div class="titem"><i class="fas fa-headset"></i> 24/7 Support</div>
+  </div>
+
+  <!-- ── CATEGORY FILTER CHIPS ── -->
+  <div class="filter-sec">
+    <div class="filter-in">
+      <div class="filter-lbl">Browse by Category</div>
+      <div class="chips">
+        <button class="chip active" data-filter="all"      onclick="filterProducts(this)">🛒 All</button>
+        <button class="chip"        data-filter="mobiles"  onclick="filterProducts(this)">📱 Mobiles</button>
+        <button class="chip"        data-filter="laptops"  onclick="filterProducts(this)">💻 Laptops</button>
+        <button class="chip"        data-filter="audio"    onclick="filterProducts(this)">🎧 Audio</button>
+        <button class="chip"        data-filter="fashion"  onclick="filterProducts(this)">👗 Fashion</button>
+        <button class="chip"        data-filter="footwear" onclick="filterProducts(this)">👟 Footwear</button>
+        <button class="chip"        data-filter="home"     onclick="filterProducts(this)">🏠 Home</button>
+        <button class="chip"        data-filter="beauty"   onclick="filterProducts(this)">💄 Beauty</button>
+        <button class="chip"        data-filter="sports"   onclick="filterProducts(this)">🏋️ Sports</button>
+        <button class="chip"        data-filter="watches"  onclick="filterProducts(this)">⌚ Watches</button>
+        <button class="chip"        data-filter="bags"     onclick="filterProducts(this)">👜 Bags</button>
+        <button class="chip"        data-filter="gifting"  onclick="filterProducts(this)">🎁 Gifting</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TODAY'S BEST DEALS (with real images) ── -->
+  <div class="deals-sec">
+    <div class="sec-head">
+      <div>
+        <h2>Today's <span>Best Deals</span></h2>
+        <span class="dec-line"></span>
+      </div>
+      <span class="viewall">View All</span>
+    </div>
+
+    <!-- Deal cards — each has a real background image + overlay text -->
+    <div class="deal-grid">
+
+      <div class="dcard" onclick="filterByDeal('mobiles')"
+        style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80')">
+        <div class="dcard-overlay">
+          <div class="dcard-tag">📱 Mobiles</div>
+          <div class="dcard-title">Mobile Fest</div>
+          <div class="dcard-off">Up to 40% Off</div>
+          <div class="dcard-btn">Shop Now →</div>
+        </div>
+      </div>
+
+      <div class="dcard" onclick="filterByDeal('watches')"
+        style="background-image:url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80')">
+        <div class="dcard-overlay">
+          <div class="dcard-tag">⌚ Watches</div>
+          <div class="dcard-title">Luxury Watches</div>
+          <div class="dcard-off">Up to 30% Off</div>
+          <div class="dcard-btn">Shop Now →</div>
+        </div>
+      </div>
+
+      <div class="dcard" onclick="filterByDeal('fashion')"
+        style="background-image:url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&q=80')">
+        <div class="dcard-overlay">
+          <div class="dcard-tag">👗 Fashion</div>
+          <div class="dcard-title">Fashion Week</div>
+          <div class="dcard-off">Min 50% Off</div>
+          <div class="dcard-btn">Shop Now →</div>
+        </div>
+      </div>
+
+      <div class="dcard" onclick="filterByDeal('bags')"
+        style="background-image:url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80')">
+        <div class="dcard-overlay">
+          <div class="dcard-tag">👜 Bags</div>
+          <div class="dcard-title">Designer Bags</div>
+          <div class="dcard-off">Up to 35% Off</div>
+          <div class="dcard-btn">Shop Now →</div>
+        </div>
+      </div>
+
+      <div class="dcard" onclick="filterByDeal('audio')"
+        style="background-image:url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80')">
+        <div class="dcard-overlay">
+          <div class="dcard-tag">🎧 Audio</div>
+          <div class="dcard-title">Audio Deals</div>
+          <div class="dcard-off">Up to 60% Off</div>
+          <div class="dcard-btn">Shop Now →</div>
+        </div>
+      </div>
+
+      <div class="dcard" onclick="filterByDeal('gifting')"
+        style="background-image:url('https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80')">
+        <div class="dcard-overlay">
+          <div class="dcard-tag">🎁 Gifting</div>
+          <div class="dcard-title">Gift Sets</div>
+          <div class="dcard-off">Starting ₹499</div>
+          <div class="dcard-btn">Shop Now →</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PRODUCT GRID ── -->
+  <div class="main">
+    <div class="sec-head">
+      <div>
+        <h2>Featured <span>Collection</span></h2>
+        <span class="dec-line"></span>
+      </div>
+      <span class="viewall">View All</span>
+    </div>
+    <!-- JS injects product cards here -->
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="ft-logo">Luxury <em>Vogue</em></div>
+    <div class="ft-line"></div>
+    <p>© 2026 Luxury Vogue · Premium Lifestyle Store · </p>
+  </footer>
+
+  <!-- ── CART OVERLAY ── -->
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+  <!-- ── CART SIDEBAR ── -->
+  <div class="cart-side" id="cartSide">
+    <div class="cart-hd">
+      <h2><i class="fas fa-shopping-bag"></i> Your Luxury Bag</h2>
+      <button class="close-btn" type="button" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-ft" id="cartFt" style="display:none">
+      <div class="prow"><span>MRP Total</span><span id="subTotal">₹0</span></div>
+      <div class="prow"><span>Discount</span><span class="disc" id="discAmt">-₹0</span></div>
+      <div class="prow"><span>Delivery</span><span class="free">FREE</span></div>
+      <div class="prow total"><span>Amount Payable</span><span id="grandTotal">₹0</span></div>
+      <button class="chk-btn" type="button">
+        <i class="fas fa-lock"></i> Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- ── TOAST NOTIFICATION ── -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <!-- JS file — always at BOTTOM of body -->
+  <script src="script.js"></script>
+
+</body>
+</html>
